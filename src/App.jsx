@@ -3,6 +3,8 @@ import styles from "./App.module.css";
 import "./global.css";
 
 import logo from "./assets/rocket-logo.svg";
+import clipboard from "./assets/clipboard.svg";
+
 import { PlusCircle } from "phosphor-react";
 function App() {
   return (
@@ -19,9 +21,20 @@ function App() {
           <input type="text" placeholder="Adicione uma nova tarefa" />
           <button type="submit">
             Criar
-            <PlusCircle />
+            <PlusCircle size={20} />
           </button>
         </form>
+
+        <div className={styles.taskList}>
+          <header>
+            <p className={styles.createdTasks}>
+              Tarefas criadas <span className={styles.taskCount}>0</span>
+            </p>
+            <p className={styles.doneTasks}>
+              Concluidas <span className={styles.taskCount}>0</span>
+            </p>
+          </header>
+        </div>
       </main>
     </div>
   );
