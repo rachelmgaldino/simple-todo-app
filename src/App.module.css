@@ -1,3 +1,4 @@
+/* header */
 .header {
   display: flex;
   gap: 0.75rem;
@@ -12,3 +13,34 @@
 .header h1 span {
   color: var(--purple-dark);
 }
+
+/* form */
+.addToDoForm {
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  width: 100%;
+  margin-top: -1.625rem;
+}
+
+.addToDoForm input {
+  background: var(--gray-500);
+  color: var(--gray-300);
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  width: 50%;
+}
+
+.addToDoForm button {
+  display: flex;
+  background: var(--blue);
+  color: var(--white);
+  gap: .5rem;
+  align-items: center;
+  padding: 1rem;
+  border-radius: .5rem;
+  font-weight: bold;
+  font-size: .875rem;
+}
+
