@@ -34,6 +34,14 @@ function App() {
               Concluidas <span className={styles.taskCount}>0</span>
             </p>
           </header>
+
+          <div className={styles.emptyTaskList}>
+            <img src={clipboard} />
+            <div className={styles.emptyTaskMessage}>
+              <strong>Você ainda não tem tarefas cadastradas</strong>
+              <p>Crie tarefas e organize seus itens a fazer</p>
+            </div>
+          </div>
         </div>
       </main>
     </div>

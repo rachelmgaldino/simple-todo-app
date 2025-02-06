@@ -26,6 +26,7 @@ main {
   justify-content: center;
   width: 100%;
   margin-top: -1.625rem;
+  margin-bottom: 4rem;
 }
 
 .addToDoForm input {
@@ -54,10 +55,11 @@ main {
 .taskList header {
   display: flex;
   justify-content: space-between;
-  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
-.createdTasks, .doneTasks {
+.createdTasks,
+.doneTasks {
   font-size: 0.875rem;
   font-weight: bold;
 }
@@ -78,4 +80,22 @@ main {
   border-radius: 999px;
   display: inline-block;
   margin-left: 8px;
+}
+
+/* empty task list */
+.emptyTaskList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 0;
+  gap: 1rem;
+  border-top: 1px solid var(--gray-400);
+  border-radius: 8px;
+}
+
+.emptyTaskMessage {
+line-height: 1.4;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
