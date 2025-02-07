@@ -18,8 +18,23 @@ function App() {
     {
       id: 2,
       title: "Finish todo project",
+      done: true,
+    },
+    {
+      id: 3,
+      title: "Componentize the project",
       done: false,
     },
+    {
+      id: 4,
+      title: "Deploy the project",
+      done: false,
+    },
+    {
+      id: 5,
+      title: "Read 5 books",
+      done: false,
+    }
   ]);
   const [newTask, setNewTask] = useState("");
 
