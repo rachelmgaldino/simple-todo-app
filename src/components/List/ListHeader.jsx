@@ -12,7 +12,7 @@ export function ListHeader({ tasks }) {
       <p className={styles.doneTasks}>
         Completed{" "}
         <span className={styles.taskCount}>
-          {sumCompletedTasks} of {sumAllTasks}
+          {sumAllTasks < 1 ? sumCompletedTasks : `${sumCompletedTasks} of ${sumAllTasks}`}
         </span>
       </p>
     </div>
