@@ -2,10 +2,12 @@ import styles from "./App.module.css";
 
 import "./global.css";
 
-import clipboard from "./assets/clipboard.svg";
-
 import { Check, Trash } from "phosphor-react";
 import { useState } from "react";
+import { Header } from "./components/Header";
+import { Form } from "./components/Form";
+import { ListHeader } from "./components/List/ListHeader";
+import { EmptyTaskList } from "./components/List/EmptyTaskList";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -36,9 +38,6 @@ function App() {
     }
   ]);
 
-  const amountOfTasks = tasks.length;
-  const completedTasks = tasks.filter((task) => task.done).length;
-
   function handleChangeTaskStatus(id) {
     setTasks((currentTasks) =>
       currentTasks.map((task) => {
@@ -63,15 +62,7 @@ function App() {
         <div className={styles.taskList}>
           <ListHeader tasks={tasks} />
 
-          {tasks.length === 0 ? (
-            <div className={styles.emptyTaskList}>
-              <img src={clipboard} />
-              <div className={styles.emptyTaskMessage}>
-                <strong>You don't have any tasks registered yet</strong>
-                <p>Create tasks and organize your to-do items</p>
-              </div>
-            </div>
-          ) : (
+          {tasks.length !== 0 ? (
             <div className={styles.taskList}>
               <ul>
                 {tasks.slice().reverse().map((task) => {
@@ -101,6 +92,8 @@ function App() {
                 })}
               </ul>
             </div>
+          ) : (
+            <EmptyTaskList />
           )}
         </div>
       </main>
