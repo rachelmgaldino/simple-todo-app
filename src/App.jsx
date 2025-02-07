@@ -61,16 +61,7 @@ function App() {
         <Form tasks={tasks} setTasks={setTasks} />
 
         <div className={styles.taskList}>
-          <header>
-            <p className={styles.createdTasks}>
-              Created tasks{" "}
-              <span className={styles.taskCount}>{amountOfTasks}</span>
-            </p>
-            <p className={styles.doneTasks}>
-              Completed{" "}
-              <span className={styles.taskCount}>{completedTasks} of {amountOfTasks}</span>
-            </p>
-          </header>
+          <ListHeader tasks={tasks} />
 
           {tasks.length === 0 ? (
             <div className={styles.emptyTaskList}>

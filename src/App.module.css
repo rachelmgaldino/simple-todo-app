@@ -1,88 +1,6 @@
-/* header */
-.header {
-  display: flex;
-  gap: 0.75rem;
-  background: var(--gray-700);
-  justify-content: center;
-  padding: 4.5rem 0 5rem;
-}
-
-.header h1 {
-  color: var(--blue);
-}
-.header h1 span {
-  color: var(--purple-dark);
-}
-
-main {
+.content {
   width: 50%;
   margin: 0 auto;
-}
-
-.addToDoForm {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-  width: 100%;
-  margin-top: -1.625rem;
-  margin-bottom: 4rem;
-}
-
-.addToDoForm input {
-  background: var(--gray-500);
-  color: var(--gray-100);
-  padding: 1rem;
-  border-radius: 8px;
-  border: none;
-  width: 100%;
-}
-
-.addToDoForm button {
-  display: flex;
-  background: var(--blue-dark);
-  color: var(--gray-200);
-  gap: 0.5rem;
-  align-items: center;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  font-weight: 700;
-  font-size: 0.875rem;
-  border: none;
-  cursor: pointer;
-}
-
-.addToDoForm button:hover {
-  background: var(--blue);
-}
-
-.taskList header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-}
-
-.createdTasks,
-.doneTasks {
-  font-size: 0.875rem;
-  font-weight: bold;
-}
-
-.createdTasks {
-  color: var(--blue);
-}
-
-.doneTasks {
-  color: var(--purple);
-}
-
-.taskCount {
-  font-size: 0.75rem;
-  color: var(--gray-200);
-  background-color: var(--gray-400);
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-  display: inline-block;
-  margin-left: 8px;
 }
 
 .emptyTaskList {
@@ -136,7 +54,7 @@ main {
 .individualTask .checkbox.done {
   background: var(--purple-dark);
   color: var(--white);
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .individualTask .checkbox.done:hover {
@@ -147,7 +65,7 @@ main {
   background: transparent;
   color: var(--blue);
   border: 2px solid var(--blue);
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .individualTask .checkbox.pending:hover {
@@ -167,7 +85,7 @@ main {
   font-size: 0.875rem;
   line-height: 1.4;
   text-decoration: line-through;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .individualTask button {

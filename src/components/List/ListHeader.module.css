@@ -1,0 +1,29 @@
+.taskCounter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.createdTasks,
+.doneTasks {
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.createdTasks {
+  color: var(--blue);
+}
+
+.doneTasks {
+  color: var(--purple);
+}
+
+.taskCount {
+  font-size: 0.75rem;
+  color: var(--gray-200);
+  background-color: var(--gray-400);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  display: inline-block;
+  margin-left: 8px;
+}
