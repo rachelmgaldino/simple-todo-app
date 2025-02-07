@@ -36,21 +36,9 @@ function App() {
       done: false,
     }
   ]);
-  const [newTask, setNewTask] = useState("");
 
   const amountOfTasks = tasks.length;
   const completedTasks = tasks.filter((task) => task.done).length;
-
-  function handleCreateNewTask(e) {
-    e.preventDefault();
-    const newTask = e.target.taskInput.value;
-    setTasks([...tasks, { id: tasks.length + 1, title: newTask, done: false }]);
-    setNewTask(""); // Clear the input after creating a new task
-  }
-
-  function handleNewTaskChange(e) {
-    setNewTask(e.target.value); // Update the newTask state with the value of the input
-  }
 
   function handleChangeTaskStatus(id) {
     setTasks((currentTasks) =>
@@ -75,21 +63,8 @@ function App() {
         </h1>
       </header>
 
-      <main>
-        <form onSubmit={handleCreateNewTask} className={styles.addToDoForm}>
-          <input
-            type="text"
-            placeholder="Add a new task"
-            name="taskInput"
-            onChange={handleNewTaskChange}
-            value={newTask}
-            required
-          />
-          <button type="submit">
-            Create
-            <PlusCircle size={20} />
-          </button>
-        </form>
+      <section className={styles.content}>
+        <Form tasks={tasks} setTasks={setTasks} />
 
         <div className={styles.taskList}>
           <header>

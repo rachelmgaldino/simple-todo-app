@@ -1,0 +1,35 @@
+.addToDoForm {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  width: 100%;
+  margin-top: -1.625rem;
+  margin-bottom: 4rem;
+}
+
+.addToDoForm input {
+  background: var(--gray-500);
+  color: var(--gray-100);
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+}
+
+.addToDoForm button {
+  display: flex;
+  background: var(--blue-dark);
+  color: var(--gray-200);
+  gap: 0.5rem;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+}
+
+.addToDoForm button:hover {
+  background: var(--blue);
+}
