@@ -6,7 +6,7 @@ import logo from "./assets/rocket-logo.svg";
 import clipboard from "./assets/clipboard.svg";
 
 import { Check, PlusCircle, Trash } from "phosphor-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -18,12 +18,6 @@ function App() {
     {
       id: 2,
       title: "Finish todo project",
-      done: false,
-    },
-    {
-      id: 3,
-      title:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolores necessitatibus accusamus laudantium.",
       done: false,
     },
   ]);
@@ -70,14 +64,14 @@ function App() {
         <form onSubmit={handleCreateNewTask} className={styles.addToDoForm}>
           <input
             type="text"
-            placeholder="Adicione uma nova tarefa"
+            placeholder="Add a new task"
             name="taskInput"
             onChange={handleNewTaskChange}
             value={newTask}
             required
           />
           <button type="submit">
-            Criar
+            Create
             <PlusCircle size={20} />
           </button>
         </form>
@@ -85,11 +79,11 @@ function App() {
         <div className={styles.taskList}>
           <header>
             <p className={styles.createdTasks}>
-              Tarefas criadas{" "}
+              Created tasks{" "}
               <span className={styles.taskCount}>{amountOfTasks}</span>
             </p>
             <p className={styles.doneTasks}>
-              Concluidas{" "}
+              Completed{" "}
               <span className={styles.taskCount}>{completedTasks}</span>
             </p>
           </header>
@@ -98,8 +92,8 @@ function App() {
             <div className={styles.emptyTaskList}>
               <img src={clipboard} />
               <div className={styles.emptyTaskMessage}>
-                <strong>Você ainda não tem tarefas cadastradas</strong>
-                <p>Crie tarefas e organize seus itens a fazer</p>
+                <strong>You don't have any tasks registered yet</strong>
+                <p>Create tasks and organize your to-do items</p>
               </div>
             </div>
           ) : (
