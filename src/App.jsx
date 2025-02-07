@@ -2,10 +2,9 @@ import styles from "./App.module.css";
 
 import "./global.css";
 
-import logo from "./assets/rocket-logo.svg";
 import clipboard from "./assets/clipboard.svg";
 
-import { Check, PlusCircle, Trash } from "phosphor-react";
+import { Check, Trash } from "phosphor-react";
 import { useState } from "react";
 
 function App() {
@@ -56,12 +55,7 @@ function App() {
 
   return (
     <div>
-      <header className={styles.header}>
-        <img src={logo} />
-        <h1>
-          to<span>do</span>
-        </h1>
-      </header>
+      <Header />
 
       <section className={styles.content}>
         <Form tasks={tasks} setTasks={setTasks} />
