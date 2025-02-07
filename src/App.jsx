@@ -5,7 +5,7 @@ import "./global.css";
 import logo from "./assets/rocket-logo.svg";
 import clipboard from "./assets/clipboard.svg";
 
-import { PlusCircle } from "phosphor-react";
+import { PlusCircle, Trash } from "phosphor-react";
 function App() {
   return (
     <div>
@@ -35,12 +35,34 @@ function App() {
             </p>
           </header>
 
-          <div className={styles.emptyTaskList}>
+          {/* <div className={styles.emptyTaskList}>
             <img src={clipboard} />
             <div className={styles.emptyTaskMessage}>
               <strong>Você ainda não tem tarefas cadastradas</strong>
               <p>Crie tarefas e organize seus itens a fazer</p>
             </div>
+          </div> */}
+
+          <div className={styles.taskList}>
+            <ul>
+              <li className={styles.individualTask}>
+                <input type="checkbox" />
+                <span>
+                Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
+                </span>
+                <button><Trash /></button>
+              </li>
+              <li className={styles.individualTask}>
+                <input type="checkbox" />
+                <span className={styles.checked}>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+                  dolores necessitatibus accusamus laudantium.
+                </span>
+                <button title="Deletar tarefa">
+                  <Trash />
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
       </main>
