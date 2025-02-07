@@ -99,7 +99,7 @@ function App() {
             </p>
             <p className={styles.doneTasks}>
               Completed{" "}
-              <span className={styles.taskCount}>{completedTasks}</span>
+              <span className={styles.taskCount}>{completedTasks} of {amountOfTasks}</span>
             </p>
           </header>
 
