@@ -5,8 +5,58 @@ import "./global.css";
 import logo from "./assets/rocket-logo.svg";
 import clipboard from "./assets/clipboard.svg";
 
-import { PlusCircle, Trash } from "phosphor-react";
+import { Check, PlusCircle, Trash } from "phosphor-react";
+import { useEffect, useState } from "react";
+
 function App() {
+  const [tasks, setTasks] = useState([
+    {
+      id: 1,
+      title: "Start todo project",
+      done: true,
+    },
+    {
+      id: 2,
+      title: "Finish todo project",
+      done: false,
+    },
+    {
+      id: 3,
+      title:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolores necessitatibus accusamus laudantium.",
+      done: false,
+    },
+  ]);
+  const [newTask, setNewTask] = useState("");
+
+  const amountOfTasks = tasks.length;
+  const completedTasks = tasks.filter((task) => task.done).length;
+
+  function handleCreateNewTask(e) {
+    e.preventDefault();
+    const newTask = e.target.taskInput.value;
+    setTasks([...tasks, { id: tasks.length + 1, title: newTask, done: false }]);
+    setNewTask(""); // Clear the input after creating a new task
+  }
+
+  function handleNewTaskChange(e) {
+    setNewTask(e.target.value); // Update the newTask state with the value of the input
+  }
+
+  function handleChangeTaskStatus(id) {
+    setTasks((currentTasks) =>
+      currentTasks.map((task) => {
+        return task.id === id
+          ? { ...task, done: !task.done } // !task.done will invert the value of the done property
+          : task;
+      })
+    );
+  }
+
+  function handleDeleteTask(id) {
+    setTasks((currentTasks) => currentTasks.filter((task) => task.id !== id));
+  }
+
   return (
     <div>
       <header className={styles.header}>
@@ -17,8 +67,15 @@ function App() {
       </header>
 
       <main>
-        <form className={styles.addToDoForm}>
-          <input type="text" placeholder="Adicione uma nova tarefa" />
+        <form onSubmit={handleCreateNewTask} className={styles.addToDoForm}>
+          <input
+            type="text"
+            placeholder="Adicione uma nova tarefa"
+            name="taskInput"
+            onChange={handleNewTaskChange}
+            value={newTask}
+            required
+          />
           <button type="submit">
             Criar
             <PlusCircle size={20} />
@@ -28,42 +85,54 @@ function App() {
         <div className={styles.taskList}>
           <header>
             <p className={styles.createdTasks}>
-              Tarefas criadas <span className={styles.taskCount}>0</span>
+              Tarefas criadas{" "}
+              <span className={styles.taskCount}>{amountOfTasks}</span>
             </p>
             <p className={styles.doneTasks}>
-              Concluidas <span className={styles.taskCount}>0</span>
+              Concluidas{" "}
+              <span className={styles.taskCount}>{completedTasks}</span>
             </p>
           </header>
 
-          {/* <div className={styles.emptyTaskList}>
-            <img src={clipboard} />
-            <div className={styles.emptyTaskMessage}>
-              <strong>Você ainda não tem tarefas cadastradas</strong>
-              <p>Crie tarefas e organize seus itens a fazer</p>
+          {tasks.length === 0 ? (
+            <div className={styles.emptyTaskList}>
+              <img src={clipboard} />
+              <div className={styles.emptyTaskMessage}>
+                <strong>Você ainda não tem tarefas cadastradas</strong>
+                <p>Crie tarefas e organize seus itens a fazer</p>
+              </div>
             </div>
-          </div> */}
-
-          <div className={styles.taskList}>
-            <ul>
-              <li className={styles.individualTask}>
-                <input type="checkbox" />
-                <span>
-                Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
-                </span>
-                <button><Trash /></button>
-              </li>
-              <li className={styles.individualTask}>
-                <input type="checkbox" />
-                <span className={styles.checked}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
-                  dolores necessitatibus accusamus laudantium.
-                </span>
-                <button title="Deletar tarefa">
-                  <Trash />
-                </button>
-              </li>
-            </ul>
-          </div>
+          ) : (
+            <div className={styles.taskList}>
+              <ul>
+                {tasks.slice().reverse().map((task) => {
+                  return (
+                    <li key={task.id} className={styles.individualTask}>
+                      <input type="checkbox" />
+                      <div
+                        onClick={() => handleChangeTaskStatus(task.id)}
+                        className={`${styles.checkbox} ${
+                          task.done ? styles.done : styles.pending
+                        }`}
+                      >
+                        {task.done ? (
+                          <Check className={styles.checkedBox} size={12} />
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                      <span className={`${task.done ? styles.checked : ""}`}>
+                        {task.title}
+                      </span>
+                      <button onClick={() => handleDeleteTask(task.id)}>
+                        <Trash />
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
         </div>
       </main>
     </div>
